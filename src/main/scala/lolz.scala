@@ -6,7 +6,6 @@ object lolz {
   private[lolz] class WTF[A,B](val something : A, val partialFunction : PartialFunction[A,B]) {
         
     def OMG(f : PartialFunction[A,B]) = new WTF(something, partialFunction orElse f);
-    def ?!!? = this
     
     def asResult = partialFunction.apply(something)
   }   
@@ -15,7 +14,7 @@ object lolz {
     //funnier equals
     def IZ[B](tehOther :B) = something == tehOther
     //The questioning operator, ensures memory around this instruction is sane
-    def ? = { assert(true); something }
+    def ?!!? = { assert(true); something }
     //emphatic operator
     def !!!!!!!!! = if(something != null) something else O NOES !!    
    
@@ -35,9 +34,10 @@ object lolz {
     }
     def has[A](something : A) = new {
       assert(something != null)
-      def ? = ()
+      def ? = something
     }
   }
+  
   //BETTER FAILS  
   object !! {}
   object O {    
